@@ -1,0 +1,39 @@
+body{
+    background-color: #4CAF50;
+}
+img{
+    width: 300;
+    height: auto;
+}
+ul {
+    list-style-type: none;
+    
+}
+
+  /*SG = style grid*/
+  .SG{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .SG .sgLi{
+    min-width: 24%;
+    margin: 2% .35%;
+    display: inline-flex;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+  }
+  .SG .sgLi:hover{
+    box-shadow:0 5px 10px rgba(0,0,0,.15);}
+  .SG .box{
+    width: 100%;
+    height: auto;
+    padding: 1% 2%;
+    background: #928989;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #171717;
+    
+  }
+h1, h2{
+    text-align: center;
+}

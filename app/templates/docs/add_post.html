@@ -1,0 +1,18 @@
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}   
+    <link rel="stylesheet" href="{% static 'files/add_posts.css' %}">
+{% endblock css_files %}
+{% block content %}
+{% include "docs/navbar.html" %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="add_post_page">
+            <div class="form">
+                {{form.as_p}}
+                <button>Add post</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock content %}

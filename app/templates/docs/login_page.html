@@ -1,0 +1,20 @@
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "files/login.css" %}">
+{% endblock css_files %}
+{% block content %}
+    <form action="{% url "login" %}" method="POST">
+        {% csrf_token %}
+        <div class="login-page">
+            <div class="form">
+        
+                <input type="text" name="username" placeholder="username"/>
+                <input type="password" name="password" placeholder="password"/>
+                <button>login</button>
+                <p class="message">Not registered? <a href="{% url "register" %}">Create an account</a></p>
+              
+            </div>
+        </div>
+          
+{% endblock content %}

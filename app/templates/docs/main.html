@@ -1,0 +1,31 @@
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'files/main.css' %}">
+{% endblock css_files %}
+{% block content %}
+    <h1>Hello {{user}}</h1>
+    <h1>Welcome at adventures forum</h1>
+    {% include "docs/navbar.html" %}
+    <h2>Posted adventures</h2>
+    <ul class="SG">
+        {% for adventure in articles %}
+        <li class="sgLi">
+            <div class="box">
+                Title: <strong>{{adventure.topic}}</strong><br>
+                <img src='{{ adventure.image.url }}'><br>
+                {{adventure.description}}<br>
+                Date created: {{adventure.date}}<br>
+                Created by: <strong>{{adventure.author}}</strong><br>
+                {% if request.user == adventure.author %}
+                <a href="{% url "DeletePost" adventure.id %}">Delete </a>
+                <a href="{% url "UpdatePost" adventure.id %}">Update</a><br>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+        <br>
+    </ul>
+{% endblock content %}
+
+
