@@ -1,0 +1,45 @@
+
+.form-add_post {
+  max-width: 500px;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.form-add_post .form-floating {
+  margin-bottom: 15px;
+}
+
+.form-add_post .form-floating label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-add_post input[type="text"], .form-add_post input[type="file"], .form-add_post textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-add_post textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.form-add_post button[type="submit"] {
+  background-color: #76b852;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-add_post button[type="submit"]:hover {
+  background-color: #76b852;
+}

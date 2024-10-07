@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock css_files %}
+{% block content %}
+<div class="login-page">
+    <div class="form">
+        <form class="register-form" method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username"/>
+            <input type="password" name="password1" placeholder="Password"/>
+            <input type="password" name="password2" placeholder="Confirm Password"/>
+            <input type="email" name="email" placeholder="Email Address"/>
+            <p>Your password should not be simillar to username or email.</p>
+            <p>your password should be 8 characters long.</p>
+            <p>Your password cannot consist only of numbers.</p>
+            <button type="submit">Create</button>
+            <p class="message">Already registered? <a href="{% url "login" %}">Login</a></p>
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/comments.css' %}">
+{% endblock css_files %}
+{% block content %}
+    {% include "docs/navbar.html" %}
+        <div class="container mb-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="box text-center p-3 border rounded">
+                        <h3 class="mb-3"><strong>{{ post.topic }}</strong></h3>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="Adventure Image" class="img-fluid mb-3">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                        <p>{{ post.description }}</p>
+                        <p class="text-muted">Date created: {{ post.date }}</p>
+                        <p>Created by: <strong>{{ post.author }}</strong></p>
+                        {% if request.user == post.author %}
+                            <a href="{% url 'DeletePost' post.id %}" class="btn btn-danger btn-sm me-2">Delete</a>
+                            <a href="{% url 'UpdatePost' post.id %}" class="btn btn-primary btn-sm">Update</a>
+                        {% endif %}
+                    </div>
+                    <div class="comments-section">
+                        <h3>Comments</h3>
+                        <ul class="comments-list">
+                            {% for comment in comments %}
+                                <li class="comment">
+                                    <strong class="author">{{ comment.author }}:</strong> 
+                                    <p>{{ comment.content }}</p>
+                                    <div class="date">{{ comment.created_at }}</div>
+                                    {% if comment.author == request.user %}
+                                    <a href="{% url 'edit_comment' pk=comment.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{% url 'delete_comment' pk=comment.pk %}" class="btn btn-danger btn-sm me-2">Delete</a>
+                                    {% endif %}
+                                </li>
+                            {% empty %}
+                                <li class="no-comments">No comments yet.</li>
+                            {% endfor %}
+                        </ul>
+                    
+                        <h3>Add a comment</h3>
+                        <form method="POST" class="comment-form">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="submit-button">Add comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+{% endblock content %}

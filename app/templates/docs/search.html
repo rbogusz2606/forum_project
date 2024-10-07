@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+    {% include "docs/navbar.html" %}
+    <h1>Searched Articles</h1>
+    {% if searched %}
+    {% for post in searched %}
+        <div class="container mb-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="box text-center p-3 border rounded">
+                        <h3 class="mb-3">Title: <strong>{{ post.topic }}</strong></h3>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="Adventure Image" class="img-fluid mb-3">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                        <p>{{ post.description }}</p>
+                        <p class="text-muted">Date created: {{ post.date }}</p>
+                        <p>Created by: <strong>{{ post.author }}</strong></p>
+                        {% if request.user == post.author %}
+                            <a href="{% url 'DeletePost' post.id %}" class="btn btn-danger btn-sm me-2">Delete</a>
+                            <a href="{% url 'UpdatePost' post.id %}" class="btn btn-primary btn-sm">Update</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

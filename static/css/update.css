@@ -1,0 +1,37 @@
+.container {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.form-floating {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #4CAF50;
+}
+
+.form-add_post {
+  max-width: 500px;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

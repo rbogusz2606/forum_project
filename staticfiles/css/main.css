@@ -1,0 +1,78 @@
+body {
+  background: #76b852 !important;
+}
+img{
+    width: 300;
+    height: auto;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+/* Styl dla całego kontenera */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #4CAF50; /* Dodanie zielonej obramówki */
+}
+
+/* Wyśrodkowanie tekstu */
+.text-center {
+  text-align: center;
+}
+
+/* Styl dla kolumny */
+.col {
+  padding: 10px;
+}
+
+/* Styl dla boxu */
+.box {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  
+}
+
+/* Styl dla obrazków */
+.box img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Styl dla tekstu w boxie */
+.box strong {
+  color: #76b852;
+  font-weight: bold;
+}
+
+.box p {
+  color: #6c757d;
+}
+
+/* Styl dla przycisków */
+.box a {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 8px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+
+/* Styl dla daty */
+.box .date {
+  color: #6c757d;
+  font-size: 0.9em;
+}

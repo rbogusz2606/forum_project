@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+<html lang="en" data-bs-theme="auto">
+{% block css_files %}
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link href="{% static "css/add_post.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet"> 
+    
+{% endblock css_files %}
+
+{% block content %}
+<body class="d-flex flex-column" style="min-height: 100vh; background-color: #76b852;">
+
+  {% include "docs/navbar.html" %}
+
+  <main class="form-add_post w-100 d-flex align-items-center justify-content-center py-4" style="max-width: 500px; margin: auto; padding-top: 70px;"> <!-- Użyj padding-top aby formularz nie był zasłonięty -->
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+          <div class="form-floating">
+              Title: 
+              {{ form.topic }}
+          </div>
+          <br>
+          <div class="form-floating">
+              Image:
+              {{ form.image }}
+          </div>
+
+          <div class="form-floating">
+              Description:
+              {{ form.description }}
+          </div>
+
+          <button class="btn btn-primary w-100 py-2" type="submit">Add Post</button>
+
+        {% if request.resolver_match.url_name != 'login' and messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+      </form>
+  </main>
+
+</body>
+{% endblock content %}
+</html>

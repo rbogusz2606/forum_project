@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/update.css' %}">
+{% endblock css_files %}
+{% block content %}
+    <body class="d-flex align-items-center justify-content-center py-4" style="min-height: 100vh; background-color: #76b852;">
+        <main class="form-add_post w-100" style="max-width: 500px; margin: auto;">
+            <div class="container">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="form-floating">
+                        Title: 
+                        {{ form.topic }}
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        Image:
+                        {{ form.image }}
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        Description:
+                        {{ form.description }}
+                    </div>
+                    
+                    <br>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+    </main>
+    </body>
+{% endblock content %}

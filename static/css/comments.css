@@ -1,0 +1,71 @@
+.comments-section {
+    margin-top: 40px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  /* Styl dla listy komentarzy */
+  .comments-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Styl dla pojedynczego komentarza */
+  .comment {
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    border-left: 4px solid #4CAF50;
+  }
+  
+  /* Styl dla autora komentarza */
+  .comment .author {
+    color: #76b852;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Styl dla tekstu komentarza */
+  .comment p {
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  /* Styl dla daty komentarza */
+  .comment .date {
+    font-size: 0.8em;
+    color: #999999;
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  /* Styl dla przypadku braku komentarzy */
+  .no-comments {
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  /* Styl dla formularza dodawania komentarza */
+  .comment-form {
+    margin-top: 20px;
+  }
+  
+  /* Styl dla przycisku dodawania komentarza */
+  .submit-button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }

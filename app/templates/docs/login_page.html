@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+{% endblock css_files %}
+{% block content %}
+
+<div class="login-container">
+    <h2>Logowanie</h2>
+    {% if form.errors %}
+        <p class="error">Nieprawidłowa nazwa użytkownika lub hasło.</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">Nazwa użytkownika:</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="id_password">Hasło:</label>
+            {{ form.password }}
+        </div>
+        <button type="submit">Zaloguj</button>
+        <p>Nie masz konta? <a href="{% url "register" %}">Zarejestruj się</a></p>
+    </form>
+</div>
+          
+{% endblock content %}

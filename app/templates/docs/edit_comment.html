@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="{% static "css/add_post.css" %}" rel="stylesheet">
+{% endblock css_files %}
+{% block content %}
+    <h2>Edit Comment</h2>
+    <body class="d-flex align-items-center justify-content-center py-4" style="min-height: 100vh; background-color: #76b852;">
+        <main class="form-add_post w-100" style="max-width: 500px; margin: auto;">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save changes</button>
+            </form>
+        </main>
+    </body>
+{% endblock content %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "docs/base.html" %}
+{% load static %}
+  {% block css_files%}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="{% static "css/navbars.css" %}" rel="stylesheet">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+  {% endblock  %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary w-100">
+      <div class="container-fluid px-4">
+          <div class="collapse navbar-collapse" id="navbarContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'MainView' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'AddPost' %}">Add Post</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'MyPosts' user %}">My Posts</a>
+                  </li>
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'login' %}">Login</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'register' %}">Register</a>
+                  </li>
+                  {% endif %}
+              </ul>
+              <form class="d-flex" role="search" method="POST", action="{% url "search" %}">
+                  {% csrf_token %}
+                  <input class="form-control me-2" type="search" name="searched" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+          </div>
+      </div>
+  </nav>
+
+{% endblock content %}
+
