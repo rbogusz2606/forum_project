@@ -156,7 +156,6 @@ class CommentUpdateView(LoginRequiredMixin, UpdateView):
         return reverse_lazy('post_detail', kwargs={'pk': self.object.post.pk})
 
     def get_queryset(self):
-        """Ensure that only the author or an admin can delete the comment."""
         if self.request.user.is_superuser:
             return super().get_queryset()
         return super().get_queryset().filter(author=self.request.user)
